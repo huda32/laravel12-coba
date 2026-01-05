@@ -14,5 +14,8 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('pages.contact');
 });
+
+// Produk Routes
 Route::get('/produk', [ProdukController::class, 'index']);
+
 Route::get('/produk/create', [ProdukController::class, 'createProduk']);
