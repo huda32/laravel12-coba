@@ -13,7 +13,7 @@
                     <a class="nav-link" href="/">Beranda</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/about">tentang</a>
+                    <a class="nav-link" href="/about">about</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="/contact">hubungi</a>
