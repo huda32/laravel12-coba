@@ -23,7 +23,8 @@ class ProdukController extends Controller
     }
     public function createProduk()
     {
-        return view('pages.produk.add');
+        $kategoris = \App\Models\Kategori::all();
+        return view('pages.produk.add', compact('kategoris'));
     }
     public function store(Request $request)
     {
@@ -49,7 +50,7 @@ class ProdukController extends Controller
 
     public function show($id)
     {
-        $data = produk::findOrFail($id);
+        $data = produk::with('kategori')->findOrFail($id);
         return view('pages.produk.detail', compact('data'));
     }
 }
