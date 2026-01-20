@@ -53,4 +53,29 @@ class ProdukController extends Controller
         $data = produk::with('kategori')->findOrFail($id);
         return view('pages.produk.detail', compact('data'));
     }
+
+    public function edit($id)
+    {
+        $data = produk::findOrFail($id);
+        $kategoris = \App\Models\Kategori::all();
+        return view('pages.produk.edit', compact('data', 'kategoris'));
+    }
+
+    public function update(Request $request, $id)
+    {   
+        // Validasi input
+        $validatedData = $request->validate([
+            'nama_produk' => 'required',
+            'harga' => 'required',
+            'kategori_id' => 'required',
+            'deskripsi_produk' => 'required',
+        ]);
+
+        // Update data produk
+        $produk = produk::findOrFail($id);
+        $produk->update($validatedData);
+
+        // Redirect ke halaman produk dengan pesan sukses
+        return redirect('/produk')->with('message', 'Produk berhasil diupdate!');
+    }
 }

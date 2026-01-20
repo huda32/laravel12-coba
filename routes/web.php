@@ -24,3 +24,4 @@ Route::get('/produk/{id}', [ProdukController::class, 'show']);
 Route::get('/produk/{id}/edit', [ProdukController::class, 'edit']);
 Route::put('/produk/{id}', [ProdukController::class, 'update']);
 Route::delete('/produk/{id}', [ProdukController::class, 'destroy']);
+

@@ -51,12 +51,12 @@
                                         <span class="badge bg-secondary">{{ $item->kategori->nama_kategori }}</span>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-sm btn-outline-warning me-1">
+                                        <a href="/produk/{{$item->id_produk}}/edit" class="btn btn-sm btn-outline-warning me-1">
                                             <i class="fas fa-edit"></i> Edit
-                                        </button>
-                                        <button type="button" class="btn btn-sm btn-outline-danger">
+                                        </a>
+                                        <a href="/produk/{{$item->id_produk}}" class="btn btn-sm btn-outline-danger">
                                             <i class="fas fa-trash"></i> Hapus
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                                 @empty
