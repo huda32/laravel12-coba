@@ -54,9 +54,9 @@
                                         <a href="/produk/{{$item->id_produk}}/edit" class="btn btn-sm btn-outline-warning me-1">
                                             <i class="fas fa-edit"></i> Edit
                                         </a>
-                                        <a href="/produk/{{$item->id_produk}}" class="btn btn-sm btn-outline-danger">
-                                            <i class="fas fa-trash"></i> Hapus
-                                        </a>
+                                        <button type="button" class="btn btn-sm btn-outline-danger me-1" data-bs-toggle="modal" data-bs-target="#hapus{{ $item->id_produk }}">
+                                            Hapus
+                                        </button>
                                     </td>
                                 </tr>
                                 @empty
@@ -72,4 +72,26 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+@foreach ($data as $item)
+    <div class="modal fade" id="hapus{{ $item->id_produk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form action="/produk/{{ $item->id_produk }}" method="POST" class="modal-content">
+        @csrf
+        @method('DELETE')
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Apakah Anda yakin ingin menghapus produk <strong>{{ $item->nama_produk }}</strong>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-danger">Hapus Data</button>
+      </div>
+    </form>
+  </div>
+</div>    
+@endforeach
 @endsection

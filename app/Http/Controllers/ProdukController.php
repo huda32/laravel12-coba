@@ -78,4 +78,12 @@ class ProdukController extends Controller
         // Redirect ke halaman produk dengan pesan sukses
         return redirect('/produk')->with('message', 'Produk berhasil diupdate!');
     }
+
+    public function destroy($id)
+    {
+        $produk = produk::findOrFail($id);
+        $produk->delete();
+
+        return redirect('/produk')->with('message', 'Produk berhasil dihapus!');
+    }
 }
