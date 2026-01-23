@@ -26,10 +26,17 @@
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">Data Produk</h5>
-                    <form class="input-group" style="width : 350px">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Cari Data</button>
+                    <div class="d-flex gap-2">
+                        @if (Request()->keyword != '')
+                            <a href="/produk" class="btn btn-info">Reset</a>
+                        @endif
+                        
+                        <form class="input-group" style="width : 350px">
+                            <input type="text" class="form-control" name="keyword" value="{{Request()->keyword}}" placeholder="Input data produk" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-success"  type="submit" id="button-addon2">Cari Data</button>
                     </form>
+                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

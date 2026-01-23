@@ -7,14 +7,21 @@ use App\Models\produk;
 
 class ProdukController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $datatoko = [
             'toko' => 'Laravel Store',
             'alamat' => 'Jl. Laravel No. 123, Jakarta',
             'telepon' => '021-12345678',
         ];
-        $data = produk::with('kategori')->get();
+        $search = $request->keyword;
+       
+
+        $data = produk::when($search, function ($query, $search) {
+            return $query->where('nama_produk', 'like', "%{$search}%")
+                         ->orWhere('deskripsi_produk', 'like', "%{$search}%");
+        })->with('kategori')->get();
+       
         // dd($data);
         return view('pages.produk.show',[
             'datatoko' => $datatoko,
