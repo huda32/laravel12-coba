@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class Kategoricontroller extends Controller
@@ -12,6 +13,9 @@ class Kategoricontroller extends Controller
     public function index()
     {
         //
+        $data = Kategori::all();
+        return view('pages.kategori.show', compact('data'));
+        
     }
 
     /**

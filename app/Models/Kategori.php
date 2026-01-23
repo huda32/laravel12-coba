@@ -9,6 +9,8 @@ class Kategori extends Model
     //
     protected $table = 'tb_kategori';
     protected $primaryKey = 'id_kategori';
+    protected $guarded = ['id_kategori'];
+
     public function produk()
     {
         return $this->hasMany(produk::class, 'kategori_id', 'id_kategori');

@@ -13,13 +13,13 @@
                     <a class="nav-link" href="/">Beranda</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/about">about</a>
-                    </li>
-                    <li class="nav-item">
                     <a class="nav-link" href="/contact">hubungi</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="/produk">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/kategori">Kategori</a>
                     </li>
                     {{-- <li class="nav-item">
                     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
