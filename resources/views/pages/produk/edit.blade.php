@@ -48,6 +48,14 @@
                                 </div>
                             @enderror
                         </div>
+                         <div class="col-sm-12">
+                            <label for="form-label">Stock Produk</label>
+                            <input type="number" name="stok" class="form-control" placeholder="Masukkan Stock Produk" value="{{ $data->stok }}">
+                            @error('stok')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         
                         <div class="col-12 mt-3">
                             <button type="submit" class="btn btn-primary">Update</button>
