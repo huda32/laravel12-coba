@@ -15,19 +15,6 @@ class KategoriSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('tb_kategori')->insert([
-        [
-            'nama_kategori' => 'Elektronik',
-            'deskripsi' => 'Kategori untuk produk elektronik seperti TV, radio, dll.',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ],
-        [
-            'nama_kategori' => 'Pakaian',
-            'deskripsi' => 'Kategori untuk produk pakaian seperti baju, celana, dll.',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]
-        ],);
+       
     }
 }

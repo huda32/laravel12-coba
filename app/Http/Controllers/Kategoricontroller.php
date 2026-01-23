@@ -23,7 +23,9 @@ class Kategoricontroller extends Controller
      */
     public function create()
     {
+        return view('pages.kategori.create');
         //
+
     }
 
     /**

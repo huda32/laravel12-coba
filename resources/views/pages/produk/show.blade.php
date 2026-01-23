@@ -45,8 +45,10 @@
                                 <tr>
                                     <th scope="col" class="text-center">#</th>
                                     <th scope="col">Nama Produk</th>
+                                    <th scope="col">Kode</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Deskripsi</th>
+                                    <th scope="col">Stock</th>
                                     <th scope="col">Kategori</th>
                                     <th scope="col" class="text-center">Aksi</th>
                                 </tr>
@@ -56,8 +58,10 @@
                                 <tr>
                                     <th scope="row" class="text-center">{{ $loop->iteration }}</th>
                                     <td><a href="/produk/{{$item->id_produk}}{{ $item->id }}" class="text-primary fw-bold text-decoration-none">{{ $item->nama_produk }}</a></td>
+                                    <td>{{ $item->kode_produk }}</td>
                                     <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                     <td>{{ Str::limit($item->deskripsi_produk, 50) }}</td>
+                                    <td>{{ $item->stok }}</td>
                                     <td>
                                         <span class="badge bg-secondary">{{ $item->kategori->nama_kategori }}</span>
                                     </td>

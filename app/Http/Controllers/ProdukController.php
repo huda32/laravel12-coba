@@ -21,7 +21,8 @@ class ProdukController extends Controller
             return $query->where('nama_produk', 'like', "%{$search}%")
                          ->orWhere('deskripsi_produk', 'like', "%{$search}%");
         })->with('kategori')->get();
-       
+       //atau bisa pakai
+    //    })->join('tb_kategori', 'tb_produk.kategori_id', '=', 'tb_kategori.id_kategori')->get();
         // dd($data);
         return view('pages.produk.show',[
             'datatoko' => $datatoko,
@@ -41,16 +42,19 @@ class ProdukController extends Controller
             'harga' => 'required',
             'kategori_id' => 'required',
             'deskripsi_produk' => 'required',
+            'stok' => 'required',
         ]);
         // dd($validatedData);
         // Simpan data produk baru
-        produk::create($validatedData);
-        // produk::create([
-        //     'nama_produk' => $validatedData['nama_produk'],
-        //     'harga' => $validatedData['harga'],
-        //     'kategori_id' => $validatedData['kategori_id'],
-        //     'deskripsi_produk' => $validatedData['deskripsi_produk'],
-        // ]);
+        // produk::create($validatedData);
+        produk::create([
+            'kode_produk' => 'PRD' . strtoupper(substr(md5(uniqid(rand(), true)), 0, 6)),
+            'nama_produk' => $validatedData['nama_produk'],
+            'harga' => $validatedData['harga'],
+            'kategori_id' => $validatedData['kategori_id'],
+            'deskripsi_produk' => $validatedData['deskripsi_produk'],
+            'stok' => $validatedData['stok'],
+        ]);
         // Redirect ke halaman produk dengan pesan sukses
         return redirect('/produk')->with('message', 'Produk berhasil ditambahkan!');
     }
@@ -76,6 +80,7 @@ class ProdukController extends Controller
             'harga' => 'required',
             'kategori_id' => 'required',
             'deskripsi_produk' => 'required',
+            'stok' => 'required',
         ]);
 
         // Update data produk
